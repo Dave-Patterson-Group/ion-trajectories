@@ -31,3 +31,37 @@ If you want to change the voltages on the DC electrodes, the RF amplitude, or th
 amps = [VFarLeft VLeft VCenter VRight VFarRight RFAmplitude];
 
 You should see some commented out code below the declaration of amps, if/elseif/else statements involving switch times. This allows you to change the values of amps with time. Just comment out the original amps declaration, un-comment this code, and define whatever switch times and amps values you want.
+
+
+Whale Trap Trajectory:
+
+The process is essentially the same as the Paul trap. First generate the results array:
+
+resultsWhale = compileWhaleFields();
+
+Then, to calculate a trajectory, 
+
+[trajectory,simTimes] = whaleTrajectory(resultsWhale,[x y z vx vy vz],T,m);
+
+For the whale trap model, the trap center is at (0,0,0) (assuming both DC electrodes are at the same voltage). By default, the DC electrodes are at 0.5 V, the RF amplitude is 150 V, and the RF frequency is 2 MHz. You can change these parameters in the same way as in the Paul trap. Here, amps is in the following order:
+
+amps = [VTopDCelectrode VBottomDCelectrode RFamplitude];
+
+So you should see by default amps = [0.5 0.5 150]. Feel free to change these values, though above a certain threshold voltage on the DC electrodes, there's no longer a stable equilibrium at (0,0,0). This should be between about 5-10 V. You can also try to add time switching, like in the Paul trajectory code.
+
+
+Loading Paul Trap Trajectory:
+
+This is a variation of the Paul trap I designed for loading from the TOF, where instead of the RF electrodes spanning the whole trap, they're cut off at the far left end and replaced with two more DC electrodes, which are coupled to the already existing far left electrodes. The model also extends farther out to the left so you can simulate incoming ions being loaded in along the axis. To generate the results array, type:
+
+resultsPaulLoading = compilePaulLoadingFields();
+
+This will take longer to run, probably 10-15 minutes. Then, to simulate a trajectory, type:
+
+[trajectory,simTimes] = paulLoadingTrajectory(resultsPaulLoading,[x y z vx vy vz],T,m);
+
+By default the voltages in amps are set to switch twice, demonstrating the loading procedure. I recommend starting with calculating this trajectory:
+
+[trajectory,simTimes] = paulLoadingTrajectory(resultsLoading,[-40 0 0.5 1.4e7 0 0],45e-6,88);
+
+This will load the ion into the trap. You can then mess around with the initial conditions, voltages, or switch times to see how it all changes.
