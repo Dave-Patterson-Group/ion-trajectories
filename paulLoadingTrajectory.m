@@ -19,8 +19,8 @@ i = 2;
 totalCollisions = 0;
 
 while t < T
-    switchTime1 = 4e-6;
-    switchTime2 = 14e-6;
+    switchTime1 = 6e-6;
+    switchTime2 = 16e-6;
     if t < switchTime1
         amps = [88 0 60 0 60 100];
     elseif t >= switchTime1 && t < switchTime2
