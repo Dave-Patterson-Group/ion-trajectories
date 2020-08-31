@@ -49,7 +49,7 @@ end
 trajectory = trajectory * 1e3; %Converting back to mm
 
 showModel = createpde();
-importGeometry(showModel,'/home/luca/Desktop/Patterson_Group_Projects/PDEs/STLs/FullLoadingPaulInvert.stl');
+importGeometry(showModel,'/home/luca/Desktop/Patterson_Group_Projects/PDEs/STLs/LoadingPaulInvert.stl');
 pdegplot(showModel);
 hold on
 plot3(trajectory(:,1),trajectory(:,2),trajectory(:,3));
