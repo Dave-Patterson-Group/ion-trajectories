@@ -62,6 +62,6 @@ This will take longer to run, probably 10-15 minutes. Then, to simulate a trajec
 
 By default the voltages in amps are set to switch twice, demonstrating the loading procedure. I recommend starting with calculating this trajectory:
 
-[trajectory,simTimes] = paulLoadingTrajectory(resultsLoading,[-40 0 0.5 1.4e7 0 0],45e-6,88);
+[trajectory,simTimes] = paulLoadingTrajectory(resultsLoading,[-40 0 0.3 1.4e7 0 0],45e-6,88);
 
 This will load the ion into the trap. You can then mess around with the initial conditions, voltages, or switch times to see how it all changes.
