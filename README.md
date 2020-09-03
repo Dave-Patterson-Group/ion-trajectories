@@ -1,4 +1,5 @@
 # ion-trajectories
+THIS VERSION OF THE README IS BASED ON AN OUTDATED VERSION OF THE CODE, I WILL FIX THIS SOON
 Programs for calculating ion trajectories in various versions of the Paul trap, TOF, and whale trap.
 
 Paul Trap Trajectory:
